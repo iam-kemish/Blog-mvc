@@ -4,6 +4,7 @@ using DatasInformation.Database;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 #nullable disable
@@ -11,9 +12,11 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace DatasInformation.Migrations
 {
     [DbContext(typeof(AppDbContext))]
-    partial class AppDbContextModelSnapshot : ModelSnapshot
+    [Migration("20251217095821_Second")]
+    partial class Second
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -112,7 +115,7 @@ namespace DatasInformation.Migrations
                         {
                             Id = 1,
                             Content = "Great article! Learned a lot about tech.",
-                            CreatedDate = new DateTime(2025, 12, 17, 10, 0, 0, 0, DateTimeKind.Unspecified),
+                            CreatedDate = new DateTime(2025, 12, 17, 15, 43, 18, 298, DateTimeKind.Local).AddTicks(3145),
                             PostId = 1,
                             UserName = "Alice"
                         },
@@ -120,7 +123,7 @@ namespace DatasInformation.Migrations
                         {
                             Id = 2,
                             Content = "Very helpful health tips, thanks!",
-                            CreatedDate = new DateTime(2025, 12, 17, 10, 0, 0, 0, DateTimeKind.Unspecified),
+                            CreatedDate = new DateTime(2025, 12, 17, 15, 43, 18, 298, DateTimeKind.Local).AddTicks(3787),
                             PostId = 2,
                             UserName = "Bob"
                         },
@@ -128,7 +131,7 @@ namespace DatasInformation.Migrations
                         {
                             Id = 3,
                             Content = "I want to visit these places ASAP!",
-                            CreatedDate = new DateTime(2025, 12, 17, 10, 0, 0, 0, DateTimeKind.Unspecified),
+                            CreatedDate = new DateTime(2025, 12, 17, 15, 43, 18, 298, DateTimeKind.Local).AddTicks(3790),
                             PostId = 3,
                             UserName = "Charlie"
                         });
@@ -179,7 +182,7 @@ namespace DatasInformation.Migrations
                             Author = "Theon",
                             CategoryId = 1,
                             Content = "Stay updated with the latest technology trends for 2025.",
-                            PublishedDate = new DateTime(2025, 12, 17, 10, 0, 0, 0, DateTimeKind.Unspecified),
+                            PublishedDate = new DateTime(2025, 12, 17, 15, 43, 18, 297, DateTimeKind.Local).AddTicks(9872),
                             Title = "Latest Tech Trends 2025"
                         },
                         new
@@ -188,7 +191,7 @@ namespace DatasInformation.Migrations
                             Author = "Ramsay",
                             CategoryId = 2,
                             Content = "Learn how to eat healthy and maintain your lifestyle.",
-                            PublishedDate = new DateTime(2025, 12, 17, 10, 0, 0, 0, DateTimeKind.Unspecified),
+                            PublishedDate = new DateTime(2025, 12, 17, 15, 43, 18, 298, DateTimeKind.Local).AddTicks(634),
                             Title = "Healthy Eating Tips"
                         },
                         new
@@ -197,7 +200,7 @@ namespace DatasInformation.Migrations
                             Author = "lockhead",
                             CategoryId = 3,
                             Content = "Check out the most amazing travel destinations this year.",
-                            PublishedDate = new DateTime(2025, 12, 17, 10, 0, 0, 0, DateTimeKind.Unspecified),
+                            PublishedDate = new DateTime(2025, 12, 17, 15, 43, 18, 298, DateTimeKind.Local).AddTicks(637),
                             Title = "Top Travel Destinations"
                         });
                 });
