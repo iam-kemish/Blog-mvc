@@ -1,0 +1,37 @@
+﻿@model PostVM
+
+<form asp-action="Create" method="post" enctype="multipart/form-data">
+    <div>
+        <label>Title</label>
+        <input asp-for="Post.Title" />
+        <span asp-validation-for="Post.Title"></span>
+    </div>
+
+    <div>
+        <label>Content</label>
+        <textarea asp-for="Post.Content"></textarea>
+        <span asp-validation-for="Post.Content"></span>
+    </div>
+
+    <div>
+        <label>Author</label>
+        <input asp-for="Post.Author" />
+        <span asp-validation-for="Post.Author"></span>
+    </div>
+
+    <div>
+        <label>Category</label>
+        <select asp-for="@Model.Post.CategoryId" asp-items="@Model.Categories" class="form-select border-0 shadow">
+            <option disabled selected>--Select Category--</option>
+        </select>
+        <label asp-for="Post.CategoryId" class="ms-2"></label>
+        <span asp-validation-for="Post.CategoryId" class="text-danger"></span>
+    </div>
+
+    <div>
+        <label>Feature Image</label>
+        <input type="file" asp-for="FeatureImage" />
+    </div>
+
+    <button type="submit">Create Post</button>
+</form>

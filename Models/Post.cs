@@ -25,7 +25,7 @@ namespace DatasInformation.Models
         public DateTime PublishedDate { get; set; } = DateTime.Now;
         [ForeignKey("Category")]
         public int CategoryId { get; set; }
-        public Category Category { get; set; }
+        public Category? Category { get; set; }
 
         public ICollection<Comment> Comments { get; set; } = new List<Comment>();
     }
