@@ -31,19 +31,25 @@ namespace DatasInformation.Repositary.PostRepositary
 
         public async Task<IEnumerable<Post>> GetAllAsync()
         {
-        return  await  _context.Posts.Include(p=>p.Comments).ToListAsync();
+        return  await  _context.Posts
+                .Include(p=>p.Comments)
+                .Include(p=>p.Category)
+                .ToListAsync();
         }
 
         public async Task<Post?> GetByIdAsync(int id)
         {
-            var post = await _context.Posts.Include(p=>p.Comments).FirstOrDefaultAsync(u => u.Id == id);
+            var post = await _context.Posts
+                .Include(p=>p.Comments)
+                .Include(p=>p.Category)
+                .FirstOrDefaultAsync(u => u.Id == id);
             return post;
         }
 
         public async Task UpdateAsync(Post post)
         {
-           var existingPost = await _context.Posts.Include(p=>p.Comments).FirstOrDefaultAsync(p=>p.Id ==  post.Id);
-            if (existingPost != null) {
+           var existingPost = await _context.Posts.Include(p=>p.Comments).Include(p=>p.Category).FirstOrDefaultAsync(p=>p.Id ==  post.Id);
+            if (existingPost == null) {
                 return;
             } 
             existingPost.Title = post.Title;
